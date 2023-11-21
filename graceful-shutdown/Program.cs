@@ -18,8 +18,8 @@ if (app.Environment.IsDevelopment())
 
 app.Lifetime.ApplicationStopping.Register(() => {
     app.Logger.LogInformation($"{DateTime.Now:mm:ss.fff} ApplicationStopping");
-    Task.Run(() => Task1());  // Task1 excuting
-    Task.Run(() => Task2());  // Task2 excuting
+    Task.Run(async () => await Task1());  // Task1 excuting
+    Task.Run(async () => await Task2());  // Task2 excuting
     Task.Delay(20000).Wait(); // Wait for 20 s, then it's done."
 });
 
